@@ -60,7 +60,7 @@ export const EmailStudio: React.FC<EmailStudioProps> = ({ apiKeys, settings, onO
   const [isSendingTest, setIsSendingTest] = useState(false);
   const [testSendResult, setTestSendResult] = useState<SendResult | null>(null);
 
-  // AI Copilot state
+  // WeeHivv Copilot state
   const [aiPrompt, setAiPrompt] = useState('');
   const [isAiGenerating, setIsAiGenerating] = useState(false);
   const [aiOutput, setAiOutput] = useState<string | null>(null);
@@ -158,7 +158,7 @@ export const EmailStudio: React.FC<EmailStudioProps> = ({ apiKeys, settings, onO
               onClick={() => setViewEnvironment('email')}
               className={`px-3 py-1.5 rounded-lg font-medium flex items-center space-x-1.5 transition-all ${
                 viewEnvironment === 'email'
-                  ? 'bg-[#ff5a36] text-white shadow-xs'
+                  ? 'bg-primary-500 hover:bg-primary-600 text-white shadow-primary-500/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500'
                   : 'text-slate-400 hover:text-white'
               }`}
             >
@@ -169,7 +169,7 @@ export const EmailStudio: React.FC<EmailStudioProps> = ({ apiKeys, settings, onO
               onClick={() => setViewEnvironment('web')}
               className={`px-3 py-1.5 rounded-lg font-medium flex items-center space-x-1.5 transition-all ${
                 viewEnvironment === 'web'
-                  ? 'bg-[#ff5a36] text-white shadow-xs'
+                  ? 'bg-primary-500 hover:bg-primary-600 text-white shadow-primary-500/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500'
                   : 'text-slate-400 hover:text-white'
               }`}
             >
@@ -394,18 +394,18 @@ export const EmailStudio: React.FC<EmailStudioProps> = ({ apiKeys, settings, onO
             )}
           </div>
 
-          {/* AI Newsletter Copilot */}
+          {/* WeeHivv Newsletter Copilot */}
           <div className="bg-[#101117] border border-[#1e202b] p-5 rounded-2xl space-y-3">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-2">
                 <Sparkles className="w-4 h-4 text-orange-400" />
-                <h3 className="text-xs font-bold text-white uppercase tracking-wider">AI Copilot</h3>
+                <h3 className="text-xs font-bold text-white uppercase tracking-wider">WeeHivv Copilot</h3>
               </div>
               <button 
                 onClick={onOpenSettings}
                 className="text-[10px] text-orange-400 hover:underline font-mono"
               >
-                {apiKeys.groqApiKey ? 'Groq Active' : apiKeys.openaiApiKey ? 'OpenAI Active' : 'Heuristic Mode'}
+                {apiKeys.groqApiKey ? 'Groq Active' : apiKeys.openaiApiKey ? 'OpenWeeHivv Active' : 'Heuristic Mode'}
               </button>
             </div>
 
@@ -445,13 +445,13 @@ export const EmailStudio: React.FC<EmailStudioProps> = ({ apiKeys, settings, onO
 
             {isAiGenerating && (
               <div className="text-xs text-orange-400 font-mono py-2 animate-pulse">
-                Consulting AI model...
+                Consulting WeeHivv model...
               </div>
             )}
 
             {aiOutput && (
               <div className="p-3 bg-[#0a0b0e] border border-[#222432] rounded-xl text-xs text-slate-200 whitespace-pre-wrap font-sans relative group">
-                <div className="text-[10px] text-slate-500 font-mono mb-1 uppercase tracking-wider">AI Generated Suggestion:</div>
+                <div className="text-[10px] text-slate-500 font-mono mb-1 uppercase tracking-wider">WeeHivv Generated Suggestion:</div>
                 {aiOutput}
                 <div className="mt-2 pt-2 border-t border-[#1e1f2b] flex justify-end">
                   <button
@@ -657,7 +657,7 @@ export const EmailStudio: React.FC<EmailStudioProps> = ({ apiKeys, settings, onO
                     href={selectedSub.referralLink}
                     target="_blank"
                     rel="noreferrer"
-                    className="px-4 py-2 rounded-lg bg-[#ff5a36] hover:bg-[#e04622] text-white font-bold text-xs shadow-md shadow-orange-500/20 inline-flex items-center space-x-1.5 shrink-0"
+                    className="px-4 py-2 rounded-lg bg-primary-500 hover:bg-primary-600 text-white font-bold text-xs shadow-primary-500/20 inline-flex items-center space-x-1.5 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500"
                   >
                     <span>Share Referral</span>
                     <ExternalLink className="w-3.5 h-3.5" />

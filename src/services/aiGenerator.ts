@@ -52,7 +52,7 @@ export async function generateAiContent(
     }
   }
 
-  // 2. OpenAI API
+  // 2. OpenWeeHivv API
   if (keys.openaiApiKey) {
     try {
       const res = await fetch('https://api.openai.com/v1/chat/completions', {
@@ -77,7 +77,7 @@ export async function generateAiContent(
         return data.choices[0].message.content.trim();
       }
     } catch (e) {
-      console.warn('OpenAI API error, falling back', e);
+      console.warn('OpenWeeHivv API error, falling back', e);
     }
   }
 

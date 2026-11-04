@@ -52,7 +52,7 @@ export function compileToBulletproofEmailHtml(options: CompileOptions): string {
     body { margin: 0; padding: 0; background-color: #f3f4f6; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
     table { border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
     img { border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; }
-    a { color: #ff5a36; text-decoration: none; }
+    a { color: #3B82F6; text-decoration: none; }
   </style>
 </head>
 <body style="margin: 0; padding: 0; background-color: #f4f5f8; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;">
@@ -71,7 +71,7 @@ export function compileToBulletproofEmailHtml(options: CompileOptions): string {
           
           <!-- Header Bar -->
           <tr>
-            <td style="padding: 24px 32px; background-color: #0b0c10; border-bottom: 2px solid #ff5a36;">
+            <td style="padding: 24px 32px; background-color: #0b0c10; border-bottom: 2px solid #3B82F6;">
               <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
                 <tr>
                   <td>
@@ -103,7 +103,7 @@ export function compileToBulletproofEmailHtml(options: CompileOptions): string {
                 <tr>
                   <td align="center">
                     <!--[if mso]>
-                    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="${buttonUrl}" style="height:48px;v-text-anchor:middle;width:260px;" arcsize="12%" stroke="f" fillcolor="#ff5a36">
+                    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="${buttonUrl}" style="height:48px;v-text-anchor:middle;width:260px;" arcsize="12%" stroke="f" fillcolor="#3B82F6">
                       <w:anchorlock/>
                       <center style="color:#ffffff;font-family:'Segoe UI',Arial,sans-serif;font-size:14px;font-weight:bold;">
                         ${buttonText} &rarr;
@@ -113,8 +113,8 @@ export function compileToBulletproofEmailHtml(options: CompileOptions): string {
                     <![if !mso]>
                     <table role="presentation" cellspacing="0" cellpadding="0" border="0">
                       <tr>
-                        <td align="center" style="border-radius: 8px; background-color: #ff5a36;">
-                          <a href="${buttonUrl}" target="_blank" style="font-size: 14px; font-weight: 700; font-family: sans-serif; color: #ffffff; text-decoration: none; padding: 14px 28px; display: inline-block; border-radius: 8px; border: 1px solid #ff5a36; line-height: 1;">
+                        <td align="center" style="border-radius: 8px; background-color: #3B82F6;">
+                          <a href="${buttonUrl}" target="_blank" style="font-size: 14px; font-weight: 700; font-family: sans-serif; color: #ffffff; text-decoration: none; padding: 14px 28px; display: inline-block; border-radius: 8px; border: 1px solid #3B82F6; line-height: 1;">
                             ${buttonText} &rarr;
                           </a>
                         </td>

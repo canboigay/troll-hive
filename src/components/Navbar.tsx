@@ -103,7 +103,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={() => setActiveTab('overview')}
               className="flex items-center space-x-2.5 focus:outline-none text-left"
             >
-              <div className="w-8 h-8 rounded-lg bg-[#ff5a36] flex items-center justify-center font-black text-white text-sm shadow-md shadow-orange-500/20">
+              <div className="w-8 h-8 rounded-lg bg-primary-500 flex items-center justify-center font-black text-white text-sm shadow-md shadow-primary-600/20">
                 W
               </div>
               <div>
@@ -167,7 +167,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               className={`px-3.5 py-1.5 rounded-lg text-xs font-bold flex items-center space-x-1.5 transition-all shadow-md ${
                 isSending 
                   ? 'bg-orange-600/50 text-orange-200 cursor-not-allowed'
-                  : 'bg-[#ff5a36] hover:bg-[#e04622] text-white shadow-orange-500/20 active:scale-95'
+                  : 'bg-primary-500 hover:bg-primary-600 text-white shadow-primary-500/20 active:scale-95'
               }`}
             >
               <Send className={`w-3.5 h-3.5 ${isSending ? 'animate-spin' : ''}`} />

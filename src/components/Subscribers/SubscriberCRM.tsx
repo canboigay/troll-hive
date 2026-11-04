@@ -39,7 +39,7 @@ export const SubscriberCRM: React.FC<SubscriberCRMProps> = ({
   const [newFirstName, setNewFirstName] = useState('');
   const [newLastName, setNewLastName] = useState('');
   const [newTier, setNewTier] = useState<'Free' | 'Scale' | 'Enterprise VIP'>('Free');
-  const [newSource, setNewSource] = useState<'Organic Search' | 'Meta Ads' | 'Referral Program' | 'X / Twitter' | 'Beehiiv Recommendations'>('Organic Search');
+  const [newSource, setNewSource] = useState<'Organic Search' | 'Meta Ads' | 'Referral Program' | 'X / Twitter' | 'WeeHivv Recommendations'>('Organic Search');
 
   const filteredSubscribers = subscribers.filter(sub => {
     const matchesSearch = sub.email.toLowerCase().includes(searchQuery.toLowerCase()) || 
@@ -162,7 +162,7 @@ export const SubscriberCRM: React.FC<SubscriberCRMProps> = ({
         <div className="flex items-center space-x-2 text-xs">
           <button
             onClick={() => setIsAddModalOpen(true)}
-            className="px-3 py-1.5 bg-[#ff5a36] hover:bg-[#e04622] text-white rounded-xl font-bold flex items-center space-x-1.5 transition-all shadow-md shadow-orange-500/20"
+            className="px-3 py-1.5 bg-primary-500 hover:bg-primary-600 text-white rounded-xl font-bold flex items-center space-x-1.5 transition-all shadow-primary-500/20"
           >
             <Plus className="w-3.5 h-3.5" />
             <span>Add Subscriber</span>
@@ -247,7 +247,7 @@ export const SubscriberCRM: React.FC<SubscriberCRMProps> = ({
                 className="bg-[#171822] text-white border border-[#262837] rounded-lg px-2.5 py-1.5 focus:outline-none"
               >
                 <option value="All">All Sources</option>
-                <option value="Beehiiv Recommendations">Beehiiv Recommendations</option>
+                <option value="WeeHivv Recommendations">WeeHivv Recommendations</option>
                 <option value="Meta Ads">Meta Ads</option>
                 <option value="X / Twitter">X / Twitter</option>
                 <option value="Referral Program">Referral Program</option>
@@ -472,7 +472,7 @@ export const SubscriberCRM: React.FC<SubscriberCRMProps> = ({
                   <option value="Meta Ads">Meta Ads</option>
                   <option value="X / Twitter">X / Twitter</option>
                   <option value="Referral Program">Referral Program</option>
-                  <option value="Beehiiv Recommendations">Beehiiv Recommendations</option>
+                  <option value="WeeHivv Recommendations">WeeHivv Recommendations</option>
                 </select>
               </div>
             </div>

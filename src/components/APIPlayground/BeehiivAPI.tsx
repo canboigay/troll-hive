@@ -12,7 +12,7 @@ import {
   Cpu
 } from 'lucide-react';
 
-export const BeehiivAPI: React.FC = () => {
+export const WeeHivvAPI: React.FC = () => {
   const [selectedEndpoint, setSelectedEndpoint] = useState<string>('get_subscribers');
   const [apiKey, setApiKey] = useState('bh_live_99d7f082e4a81c103b44');
   const [isLoading, setIsLoading] = useState(false);
@@ -34,7 +34,7 @@ export const BeehiivAPI: React.FC = () => {
             open_rate: 94.2,
             bot_risk_score: 0.01,
             acquisition: {
-              source: 'Beehiiv Recommendations',
+              source: 'WeeHivv Recommendations',
               referrer: 'https://growthdaily.com'
             }
           }
@@ -78,7 +78,7 @@ export const BeehiivAPI: React.FC = () => {
       id: 'mcp_tools',
       method: 'GET',
       path: '/v2/mcp/manifest',
-      description: 'Model Context Protocol (MCP) tool schema for autonomous AI agents',
+      description: 'Model Context Protocol (MCP) tool schema for autonomous WeeHivv agents',
       sampleResponse: {
         server: 'beehiiv-enterprise-mcp',
         version: '1.4.0',
@@ -131,7 +131,7 @@ export const BeehiivAPI: React.FC = () => {
             </span>
           </div>
           <p className="text-xs text-slate-400 mt-1 max-w-2xl">
-            Integrate subscriber ingestion, campaign publishing, automated suppression sync, and AI agent tool calling via MCP.
+            Integrate subscriber ingestion, campaign publishing, automated suppression sync, and WeeHivv agent tool calling via MCP.
           </p>
         </div>
 

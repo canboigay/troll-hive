@@ -51,7 +51,7 @@ export const INITIAL_SUBSCRIBERS: Subscriber[] = [
     lastName: 'Connor',
     status: 'active',
     tier: 'Enterprise VIP',
-    source: 'Beehiiv Recommendations',
+    source: 'WeeHivv Recommendations',
     engagementScore: 5,
     openRate: 94.2,
     clickRate: 31.8,
@@ -59,7 +59,7 @@ export const INITIAL_SUBSCRIBERS: Subscriber[] = [
     joinedAt: '2026-01-14',
     isBotSuspect: false,
     engagementHistory: [
-      { date: '2026-10-18 09:12', action: 'Opened Post', details: 'Edition #142: Future of Distributed Edge AI' },
+      { date: '2026-10-18 09:12', action: 'Opened Post', details: 'Edition #142: Future of Distributed Edge WeeHivv' },
       { date: '2026-10-18 09:14', action: 'Clicked Link', details: 'https://beehiiv.com/enterprise-deliverability' },
       { date: '2026-10-12 14:02', action: 'Referral Generated', details: 'Invited john.doe@sky.net (+1 reward)' },
       { date: '2026-09-28 11:30', action: 'Survey Submitted', details: 'Rated newsletter 5/5' }
@@ -80,7 +80,7 @@ export const INITIAL_SUBSCRIBERS: Subscriber[] = [
     joinedAt: '2026-03-02',
     isBotSuspect: false,
     engagementHistory: [
-      { date: '2026-10-18 10:45', action: 'Opened Post', details: 'Edition #142: Future of Distributed Edge AI' },
+      { date: '2026-10-18 10:45', action: 'Opened Post', details: 'Edition #142: Future of Distributed Edge WeeHivv' },
       { date: '2026-10-15 16:20', action: 'Upgraded Tier', details: 'Switched from Free to Scale Annual Plan' }
     ]
   },

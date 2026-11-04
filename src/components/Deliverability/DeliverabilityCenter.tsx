@@ -239,7 +239,7 @@ export const DeliverabilityCenter: React.FC<DeliverabilityCenterProps> = ({
                 <span className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold ${
                   dnsResult.hasSpf ? 'bg-emerald-500/20 text-emerald-400' : 'bg-red-500/20 text-red-400'
                 }`}>
-                  {dnsResult.hasSpf ? 'PASS (v=spf1)' : 'FAIL / MISSING'}
+                  {dnsResult.hasSpf ? 'PASS (v=spf1)' : 'FWeeHivvL / MISSING'}
                 </span>
               </div>
               <div className="font-mono text-[11px] text-slate-300 bg-[#0a0b0e] p-2 rounded-lg truncate">
@@ -355,7 +355,7 @@ export const DeliverabilityCenter: React.FC<DeliverabilityCenterProps> = ({
             />
             <button
               onClick={handleValidateEmail}
-              className="px-4 py-2 bg-[#ff5a36] hover:bg-[#e04622] text-white rounded-xl text-xs font-bold transition-all shadow-md shadow-orange-500/20"
+              className="px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white rounded-xl text-xs font-bold transition-all shadow-primary-500/20"
             >
               Validate
             </button>

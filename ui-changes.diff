@@ -1,0 +1,486 @@
+diff --git a/index.html b/index.html
+index ada8c46..2e97cca 100644
+--- a/index.html
++++ b/index.html
+@@ -7,7 +7,7 @@
+     <title>WeeHivv | Sovereign Newsletter Infrastructure</title>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
++    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+   </head>
+   <body class="bg-[#0b0c0e] text-slate-100 antialiased selection:bg-[#ff5a36] selection:text-white">
+     <div id="root"></div>
+diff --git a/src/App.tsx b/src/App.tsx
+index 814ecb1..752e820 100644
+--- a/src/App.tsx
++++ b/src/App.tsx
+@@ -17,7 +17,7 @@ import { EmailStudio } from './components/Editor/EmailStudio';
+ import { DeliverabilityCenter } from './components/Deliverability/DeliverabilityCenter';
+ import { SubscriberCRM } from './components/Subscribers/SubscriberCRM';
+ import { VibeCodeReality } from './components/StackComparison/VibeCodeReality';
+-import { BeehiivAPI } from './components/APIPlayground/BeehiivAPI';
++import { WeeHivvAPI } from './components/APIPlayground/WeeHivvAPI';
+ import { SettingsModal } from './components/Settings/SettingsModal';
+ import { CheckCircle2, Send, X } from 'lucide-react';
+ import { sendNewsletterEmail } from './services/emailSender';
+@@ -101,7 +101,7 @@ export function App() {
+   };
+ 
+   return (
+-    <div className="min-h-screen bg-[#090a0d] text-slate-100 flex flex-col font-sans selection:bg-[#ff5a36] selection:text-white">
++    <div className="min-h-screen bg-surface-50 text-slate-100 flex flex-col font-sans selection:bg-primary-500 selection:text-white">
+       {/* Top Navbar */}
+       <Navbar 
+         activeTab={activeTab} 
+@@ -159,7 +159,7 @@ export function App() {
+         )}
+ 
+         {activeTab === 'stack-comparison' && <VibeCodeReality />}
+-        {activeTab === 'api-mcp' && <BeehiivAPI />}
++        {activeTab === 'api-mcp' && <WeeHivvAPI />}
+       </main>
+ 
+       {/* Bring Your Own Key Modal */}
+@@ -184,7 +184,7 @@ export function App() {
+             </button>
+ 
+             <div className="flex items-center space-x-3">
+-              <div className="w-10 h-10 rounded-xl bg-[#ff5a36] flex items-center justify-center text-white font-bold">
++              <div className="w-10 h-10 rounded-xl bg-primary-500 flex items-center justify-center text-white font-bold">
+                 <Send className={`w-5 h-5 ${isSending ? 'animate-bounce' : ''}`} />
+               </div>
+               <div>
+@@ -240,7 +240,7 @@ export function App() {
+               <div className="pt-2 flex justify-end">
+                 <button
+                   onClick={() => setSendModalOpen(false)}
+-                  className="px-5 py-2 bg-[#ff5a36] hover:bg-[#e04622] text-white font-bold rounded-xl text-xs transition-all shadow-md shadow-orange-500/20"
++                  className="px-5 py-2 bg-primary-500 hover:bg-primary-600 text-white font-bold rounded-xl text-xs transition-all shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500"
+                 >
+                   Close & View Telemetry
+                 </button>
+@@ -251,7 +251,7 @@ export function App() {
+       )}
+ 
+       {/* Footer */}
+-      <footer className="border-t border-[#161720] bg-[#07080a] py-6 text-xs text-slate-500 font-mono">
++      <footer className="border-t border-surface-100 bg-surface-50 py-6 text-xs text-text-900 font-mono">
+         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
+           <div className="flex items-center space-x-3">
+             <span className="font-bold text-white">WeeHivv</span>
+diff --git a/src/components/APIPlayground/BeehiivAPI.tsx b/src/components/APIPlayground/BeehiivAPI.tsx
+index 3fe42c7..68a6929 100644
+--- a/src/components/APIPlayground/BeehiivAPI.tsx
++++ b/src/components/APIPlayground/BeehiivAPI.tsx
+@@ -12,7 +12,7 @@ import {
+   Cpu
+ } from 'lucide-react';
+ 
+-export const BeehiivAPI: React.FC = () => {
++export const WeeHivvAPI: React.FC = () => {
+   const [selectedEndpoint, setSelectedEndpoint] = useState<string>('get_subscribers');
+   const [apiKey, setApiKey] = useState('bh_live_99d7f082e4a81c103b44');
+   const [isLoading, setIsLoading] = useState(false);
+@@ -34,7 +34,7 @@ export const BeehiivAPI: React.FC = () => {
+             open_rate: 94.2,
+             bot_risk_score: 0.01,
+             acquisition: {
+-              source: 'Beehiiv Recommendations',
++              source: 'WeeHivv Recommendations',
+               referrer: 'https://growthdaily.com'
+             }
+           }
+@@ -78,7 +78,7 @@ export const BeehiivAPI: React.FC = () => {
+       id: 'mcp_tools',
+       method: 'GET',
+       path: '/v2/mcp/manifest',
+-      description: 'Model Context Protocol (MCP) tool schema for autonomous AI agents',
++      description: 'Model Context Protocol (MCP) tool schema for autonomous WeeHivv agents',
+       sampleResponse: {
+         server: 'beehiiv-enterprise-mcp',
+         version: '1.4.0',
+@@ -131,7 +131,7 @@ export const BeehiivAPI: React.FC = () => {
+             </span>
+           </div>
+           <p className="text-xs text-slate-400 mt-1 max-w-2xl">
+-            Integrate subscriber ingestion, campaign publishing, automated suppression sync, and AI agent tool calling via MCP.
++            Integrate subscriber ingestion, campaign publishing, automated suppression sync, and WeeHivv agent tool calling via MCP.
+           </p>
+         </div>
+ 
+diff --git a/src/components/Deliverability/DeliverabilityCenter.tsx b/src/components/Deliverability/DeliverabilityCenter.tsx
+index e630f1f..59eedad 100644
+--- a/src/components/Deliverability/DeliverabilityCenter.tsx
++++ b/src/components/Deliverability/DeliverabilityCenter.tsx
+@@ -239,7 +239,7 @@ export const DeliverabilityCenter: React.FC<DeliverabilityCenterProps> = ({
+                 <span className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold ${
+                   dnsResult.hasSpf ? 'bg-emerald-500/20 text-emerald-400' : 'bg-red-500/20 text-red-400'
+                 }`}>
+-                  {dnsResult.hasSpf ? 'PASS (v=spf1)' : 'FAIL / MISSING'}
++                  {dnsResult.hasSpf ? 'PASS (v=spf1)' : 'FWeeHivvL / MISSING'}
+                 </span>
+               </div>
+               <div className="font-mono text-[11px] text-slate-300 bg-[#0a0b0e] p-2 rounded-lg truncate">
+@@ -355,7 +355,7 @@ export const DeliverabilityCenter: React.FC<DeliverabilityCenterProps> = ({
+             />
+             <button
+               onClick={handleValidateEmail}
+-              className="px-4 py-2 bg-[#ff5a36] hover:bg-[#e04622] text-white rounded-xl text-xs font-bold transition-all shadow-md shadow-orange-500/20"
++              className="px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white rounded-xl text-xs font-bold transition-all shadow-primary-500/20"
+             >
+               Validate
+             </button>
+diff --git a/src/components/Editor/EmailStudio.tsx b/src/components/Editor/EmailStudio.tsx
+index 4e9b2b1..7eb70e5 100644
+--- a/src/components/Editor/EmailStudio.tsx
++++ b/src/components/Editor/EmailStudio.tsx
+@@ -60,7 +60,7 @@ export const EmailStudio: React.FC<EmailStudioProps> = ({ apiKeys, settings, onO
+   const [isSendingTest, setIsSendingTest] = useState(false);
+   const [testSendResult, setTestSendResult] = useState<SendResult | null>(null);
+ 
+-  // AI Copilot state
++  // WeeHivv Copilot state
+   const [aiPrompt, setAiPrompt] = useState('');
+   const [isAiGenerating, setIsAiGenerating] = useState(false);
+   const [aiOutput, setAiOutput] = useState<string | null>(null);
+@@ -158,7 +158,7 @@ export const EmailStudio: React.FC<EmailStudioProps> = ({ apiKeys, settings, onO
+               onClick={() => setViewEnvironment('email')}
+               className={`px-3 py-1.5 rounded-lg font-medium flex items-center space-x-1.5 transition-all ${
+                 viewEnvironment === 'email'
+-                  ? 'bg-[#ff5a36] text-white shadow-xs'
++                  ? 'bg-primary-500 hover:bg-primary-600 text-white shadow-primary-500/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500'
+                   : 'text-slate-400 hover:text-white'
+               }`}
+             >
+@@ -169,7 +169,7 @@ export const EmailStudio: React.FC<EmailStudioProps> = ({ apiKeys, settings, onO
+               onClick={() => setViewEnvironment('web')}
+               className={`px-3 py-1.5 rounded-lg font-medium flex items-center space-x-1.5 transition-all ${
+                 viewEnvironment === 'web'
+-                  ? 'bg-[#ff5a36] text-white shadow-xs'
++                  ? 'bg-primary-500 hover:bg-primary-600 text-white shadow-primary-500/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500'
+                   : 'text-slate-400 hover:text-white'
+               }`}
+             >
+@@ -394,18 +394,18 @@ export const EmailStudio: React.FC<EmailStudioProps> = ({ apiKeys, settings, onO
+             )}
+           </div>
+ 
+-          {/* AI Newsletter Copilot */}
++          {/* WeeHivv Newsletter Copilot */}
+           <div className="bg-[#101117] border border-[#1e202b] p-5 rounded-2xl space-y-3">
+             <div className="flex items-center justify-between">
+               <div className="flex items-center space-x-2">
+                 <Sparkles className="w-4 h-4 text-orange-400" />
+-                <h3 className="text-xs font-bold text-white uppercase tracking-wider">AI Copilot</h3>
++                <h3 className="text-xs font-bold text-white uppercase tracking-wider">WeeHivv Copilot</h3>
+               </div>
+               <button 
+                 onClick={onOpenSettings}
+                 className="text-[10px] text-orange-400 hover:underline font-mono"
+               >
+-                {apiKeys.groqApiKey ? 'Groq Active' : apiKeys.openaiApiKey ? 'OpenAI Active' : 'Heuristic Mode'}
++                {apiKeys.groqApiKey ? 'Groq Active' : apiKeys.openaiApiKey ? 'OpenWeeHivv Active' : 'Heuristic Mode'}
+               </button>
+             </div>
+ 
+@@ -445,13 +445,13 @@ export const EmailStudio: React.FC<EmailStudioProps> = ({ apiKeys, settings, onO
+ 
+             {isAiGenerating && (
+               <div className="text-xs text-orange-400 font-mono py-2 animate-pulse">
+-                Consulting AI model...
++                Consulting WeeHivv model...
+               </div>
+             )}
+ 
+             {aiOutput && (
+               <div className="p-3 bg-[#0a0b0e] border border-[#222432] rounded-xl text-xs text-slate-200 whitespace-pre-wrap font-sans relative group">
+-                <div className="text-[10px] text-slate-500 font-mono mb-1 uppercase tracking-wider">AI Generated Suggestion:</div>
++                <div className="text-[10px] text-slate-500 font-mono mb-1 uppercase tracking-wider">WeeHivv Generated Suggestion:</div>
+                 {aiOutput}
+                 <div className="mt-2 pt-2 border-t border-[#1e1f2b] flex justify-end">
+                   <button
+@@ -657,7 +657,7 @@ export const EmailStudio: React.FC<EmailStudioProps> = ({ apiKeys, settings, onO
+                     href={selectedSub.referralLink}
+                     target="_blank"
+                     rel="noreferrer"
+-                    className="px-4 py-2 rounded-lg bg-[#ff5a36] hover:bg-[#e04622] text-white font-bold text-xs shadow-md shadow-orange-500/20 inline-flex items-center space-x-1.5 shrink-0"
++                    className="px-4 py-2 rounded-lg bg-primary-500 hover:bg-primary-600 text-white font-bold text-xs shadow-primary-500/20 inline-flex items-center space-x-1.5 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500"
+                   >
+                     <span>Share Referral</span>
+                     <ExternalLink className="w-3.5 h-3.5" />
+diff --git a/src/components/HeroBanner.tsx b/src/components/HeroBanner.tsx
+index 172dfe6..d41ad9e 100644
+--- a/src/components/HeroBanner.tsx
++++ b/src/components/HeroBanner.tsx
+@@ -23,7 +23,7 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
+   );
+ 
+   return (
+-    <div className="border border-[#1e2029] bg-[#0d0e12] rounded-2xl p-6 sm:p-8 mb-8 space-y-6">
++    <div className="border border-surface-100 bg-surface-50 rounded-2xl p-3 sm:p-5 mb-8 space-y-6">
+       {/* Top Meta Tag */}
+       <div className="flex items-center justify-between text-xs font-mono text-slate-400 pb-4 border-b border-[#181a22]">
+         <div className="flex items-center space-x-2">
+@@ -31,7 +31,7 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
+           <span className="text-slate-300 font-medium">Sovereign Newsletter Infrastructure</span>
+         </div>
+         <div className="text-slate-500 hidden sm:block">
+-          Open-Source Alternative to Beehiiv
++          Open-Source Alternative to WeeHivv
+         </div>
+       </div>
+ 
+@@ -49,7 +49,7 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
+       <div className="flex flex-wrap items-center gap-3 text-xs pt-1">
+         <button
+           onClick={onOpenStudio}
+-          className="px-4 py-2.5 rounded-xl font-semibold bg-[#ff5a36] hover:bg-[#e04622] text-white flex items-center space-x-2 transition-colors shadow-sm"
++          className="px-4 py-2.5 rounded-xl font-semibold bg-primary-500 hover:bg-primary-600 text-white flex items-center space-x-2 transition-colors shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500"
+         >
+           <span>Open Email Studio</span>
+           <ArrowRight className="w-3.5 h-3.5" />
+diff --git a/src/components/Navbar.tsx b/src/components/Navbar.tsx
+index bef4e42..aa60a73 100644
+--- a/src/components/Navbar.tsx
++++ b/src/components/Navbar.tsx
+@@ -103,7 +103,7 @@ export const Navbar: React.FC<NavbarProps> = ({
+               onClick={() => setActiveTab('overview')}
+               className="flex items-center space-x-2.5 focus:outline-none text-left"
+             >
+-              <div className="w-8 h-8 rounded-lg bg-[#ff5a36] flex items-center justify-center font-black text-white text-sm shadow-md shadow-orange-500/20">
++              <div className="w-8 h-8 rounded-lg bg-primary-500 flex items-center justify-center font-black text-white text-sm shadow-md shadow-primary-600/20">
+                 W
+               </div>
+               <div>
+@@ -167,7 +167,7 @@ export const Navbar: React.FC<NavbarProps> = ({
+               className={`px-3.5 py-1.5 rounded-lg text-xs font-bold flex items-center space-x-1.5 transition-all shadow-md ${
+                 isSending 
+                   ? 'bg-orange-600/50 text-orange-200 cursor-not-allowed'
+-                  : 'bg-[#ff5a36] hover:bg-[#e04622] text-white shadow-orange-500/20 active:scale-95'
++                  : 'bg-primary-500 hover:bg-primary-600 text-white shadow-primary-500/20 active:scale-95'
+               }`}
+             >
+               <Send className={`w-3.5 h-3.5 ${isSending ? 'animate-spin' : ''}`} />
+diff --git a/src/components/Settings/SettingsModal.tsx b/src/components/Settings/SettingsModal.tsx
+index fe0df07..05ec010 100644
+--- a/src/components/Settings/SettingsModal.tsx
++++ b/src/components/Settings/SettingsModal.tsx
+@@ -93,7 +93,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
+                 Bring Your Own Key (BYOK) & Publication Settings
+               </h2>
+               <p className="text-xs text-slate-400">
+-                Plug your own provider keys to dispatch real emails and run AI workflows for free.
++                Plug your own provider keys to dispatch real emails and run WeeHivv workflows for free.
+               </p>
+             </div>
+           </div>
+@@ -112,7 +112,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
+           <div>
+             <strong className="text-white block font-medium">Local-Only Security Architecture</strong>
+             <span>
+-              All API keys are stored exclusively in your browser's encrypted <code className="font-mono text-slate-200">localStorage</code>. Requests are sent directly from your client to Resend, SendGrid, Groq, or OpenAI without intermediary proxies.
++              All API keys are stored exclusively in your browser's encrypted <code className="font-mono text-slate-200">localStorage</code>. Requests are sent directly from your client to Resend, SendGrid, Groq, or OpenWeeHivv without intermediary proxies.
+             </span>
+           </div>
+         </div>
+@@ -185,10 +185,10 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
+           </div>
+         </div>
+ 
+-        {/* AI Provider Section */}
++        {/* WeeHivv Provider Section */}
+         <div className="space-y-4 pt-2 border-t border-[#1e1f2b]">
+           <div className="text-xs font-bold text-slate-300 uppercase tracking-wider">
+-            2. AI Copilot Provider
++            2. WeeHivv Copilot Provider
+           </div>
+ 
+           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+@@ -216,7 +216,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
+ 
+             <div>
+               <div className="flex justify-between mb-1">
+-                <span className="text-slate-300 font-medium">OpenAI API Key (Optional)</span>
++                <span className="text-slate-300 font-medium">OpenWeeHivv API Key (Optional)</span>
+                 <span className="text-[11px] text-slate-500 font-mono">sk-...</span>
+               </div>
+               <input
+diff --git a/src/components/Subscribers/SubscriberCRM.tsx b/src/components/Subscribers/SubscriberCRM.tsx
+index 753f8a1..5bda8b8 100644
+--- a/src/components/Subscribers/SubscriberCRM.tsx
++++ b/src/components/Subscribers/SubscriberCRM.tsx
+@@ -39,7 +39,7 @@ export const SubscriberCRM: React.FC<SubscriberCRMProps> = ({
+   const [newFirstName, setNewFirstName] = useState('');
+   const [newLastName, setNewLastName] = useState('');
+   const [newTier, setNewTier] = useState<'Free' | 'Scale' | 'Enterprise VIP'>('Free');
+-  const [newSource, setNewSource] = useState<'Organic Search' | 'Meta Ads' | 'Referral Program' | 'X / Twitter' | 'Beehiiv Recommendations'>('Organic Search');
++  const [newSource, setNewSource] = useState<'Organic Search' | 'Meta Ads' | 'Referral Program' | 'X / Twitter' | 'WeeHivv Recommendations'>('Organic Search');
+ 
+   const filteredSubscribers = subscribers.filter(sub => {
+     const matchesSearch = sub.email.toLowerCase().includes(searchQuery.toLowerCase()) || 
+@@ -162,7 +162,7 @@ export const SubscriberCRM: React.FC<SubscriberCRMProps> = ({
+         <div className="flex items-center space-x-2 text-xs">
+           <button
+             onClick={() => setIsAddModalOpen(true)}
+-            className="px-3 py-1.5 bg-[#ff5a36] hover:bg-[#e04622] text-white rounded-xl font-bold flex items-center space-x-1.5 transition-all shadow-md shadow-orange-500/20"
++            className="px-3 py-1.5 bg-primary-500 hover:bg-primary-600 text-white rounded-xl font-bold flex items-center space-x-1.5 transition-all shadow-primary-500/20"
+           >
+             <Plus className="w-3.5 h-3.5" />
+             <span>Add Subscriber</span>
+@@ -247,7 +247,7 @@ export const SubscriberCRM: React.FC<SubscriberCRMProps> = ({
+                 className="bg-[#171822] text-white border border-[#262837] rounded-lg px-2.5 py-1.5 focus:outline-none"
+               >
+                 <option value="All">All Sources</option>
+-                <option value="Beehiiv Recommendations">Beehiiv Recommendations</option>
++                <option value="WeeHivv Recommendations">WeeHivv Recommendations</option>
+                 <option value="Meta Ads">Meta Ads</option>
+                 <option value="X / Twitter">X / Twitter</option>
+                 <option value="Referral Program">Referral Program</option>
+@@ -472,7 +472,7 @@ export const SubscriberCRM: React.FC<SubscriberCRMProps> = ({
+                   <option value="Meta Ads">Meta Ads</option>
+                   <option value="X / Twitter">X / Twitter</option>
+                   <option value="Referral Program">Referral Program</option>
+-                  <option value="Beehiiv Recommendations">Beehiiv Recommendations</option>
++                  <option value="WeeHivv Recommendations">WeeHivv Recommendations</option>
+                 </select>
+               </div>
+             </div>
+diff --git a/src/data/mockData.ts b/src/data/mockData.ts
+index 1a64caa..4461102 100644
+--- a/src/data/mockData.ts
++++ b/src/data/mockData.ts
+@@ -51,7 +51,7 @@ export const INITIAL_SUBSCRIBERS: Subscriber[] = [
+     lastName: 'Connor',
+     status: 'active',
+     tier: 'Enterprise VIP',
+-    source: 'Beehiiv Recommendations',
++    source: 'WeeHivv Recommendations',
+     engagementScore: 5,
+     openRate: 94.2,
+     clickRate: 31.8,
+@@ -59,7 +59,7 @@ export const INITIAL_SUBSCRIBERS: Subscriber[] = [
+     joinedAt: '2026-01-14',
+     isBotSuspect: false,
+     engagementHistory: [
+-      { date: '2026-10-18 09:12', action: 'Opened Post', details: 'Edition #142: Future of Distributed Edge AI' },
++      { date: '2026-10-18 09:12', action: 'Opened Post', details: 'Edition #142: Future of Distributed Edge WeeHivv' },
+       { date: '2026-10-18 09:14', action: 'Clicked Link', details: 'https://beehiiv.com/enterprise-deliverability' },
+       { date: '2026-10-12 14:02', action: 'Referral Generated', details: 'Invited john.doe@sky.net (+1 reward)' },
+       { date: '2026-09-28 11:30', action: 'Survey Submitted', details: 'Rated newsletter 5/5' }
+@@ -80,7 +80,7 @@ export const INITIAL_SUBSCRIBERS: Subscriber[] = [
+     joinedAt: '2026-03-02',
+     isBotSuspect: false,
+     engagementHistory: [
+-      { date: '2026-10-18 10:45', action: 'Opened Post', details: 'Edition #142: Future of Distributed Edge AI' },
++      { date: '2026-10-18 10:45', action: 'Opened Post', details: 'Edition #142: Future of Distributed Edge WeeHivv' },
+       { date: '2026-10-15 16:20', action: 'Upgraded Tier', details: 'Switched from Free to Scale Annual Plan' }
+     ]
+   },
+diff --git a/src/services/aiGenerator.ts b/src/services/aiGenerator.ts
+index 11c4d6c..719d081 100644
+--- a/src/services/aiGenerator.ts
++++ b/src/services/aiGenerator.ts
+@@ -52,7 +52,7 @@ export async function generateAiContent(
+     }
+   }
+ 
+-  // 2. OpenAI API
++  // 2. OpenWeeHivv API
+   if (keys.openaiApiKey) {
+     try {
+       const res = await fetch('https://api.openai.com/v1/chat/completions', {
+@@ -77,7 +77,7 @@ export async function generateAiContent(
+         return data.choices[0].message.content.trim();
+       }
+     } catch (e) {
+-      console.warn('OpenAI API error, falling back', e);
++      console.warn('OpenWeeHivv API error, falling back', e);
+     }
+   }
+ 
+diff --git a/src/services/outlookCompiler.ts b/src/services/outlookCompiler.ts
+index 0a6a9db..5f85c2f 100644
+--- a/src/services/outlookCompiler.ts
++++ b/src/services/outlookCompiler.ts
+@@ -52,7 +52,7 @@ export function compileToBulletproofEmailHtml(options: CompileOptions): string {
+     body { margin: 0; padding: 0; background-color: #f3f4f6; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+     table { border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+     img { border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; }
+-    a { color: #ff5a36; text-decoration: none; }
++    a { color: #3B82F6; text-decoration: none; }
+   </style>
+ </head>
+ <body style="margin: 0; padding: 0; background-color: #f4f5f8; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;">
+@@ -71,7 +71,7 @@ export function compileToBulletproofEmailHtml(options: CompileOptions): string {
+           
+           <!-- Header Bar -->
+           <tr>
+-            <td style="padding: 24px 32px; background-color: #0b0c10; border-bottom: 2px solid #ff5a36;">
++            <td style="padding: 24px 32px; background-color: #0b0c10; border-bottom: 2px solid #3B82F6;">
+               <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
+                 <tr>
+                   <td>
+@@ -103,7 +103,7 @@ export function compileToBulletproofEmailHtml(options: CompileOptions): string {
+                 <tr>
+                   <td align="center">
+                     <!--[if mso]>
+-                    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="${buttonUrl}" style="height:48px;v-text-anchor:middle;width:260px;" arcsize="12%" stroke="f" fillcolor="#ff5a36">
++                    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="${buttonUrl}" style="height:48px;v-text-anchor:middle;width:260px;" arcsize="12%" stroke="f" fillcolor="#3B82F6">
+                       <w:anchorlock/>
+                       <center style="color:#ffffff;font-family:'Segoe UI',Arial,sans-serif;font-size:14px;font-weight:bold;">
+                         ${buttonText} &rarr;
+@@ -113,8 +113,8 @@ export function compileToBulletproofEmailHtml(options: CompileOptions): string {
+                     <![if !mso]>
+                     <table role="presentation" cellspacing="0" cellpadding="0" border="0">
+                       <tr>
+-                        <td align="center" style="border-radius: 8px; background-color: #ff5a36;">
+-                          <a href="${buttonUrl}" target="_blank" style="font-size: 14px; font-weight: 700; font-family: sans-serif; color: #ffffff; text-decoration: none; padding: 14px 28px; display: inline-block; border-radius: 8px; border: 1px solid #ff5a36; line-height: 1;">
++                        <td align="center" style="border-radius: 8px; background-color: #3B82F6;">
++                          <a href="${buttonUrl}" target="_blank" style="font-size: 14px; font-weight: 700; font-family: sans-serif; color: #ffffff; text-decoration: none; padding: 14px 28px; display: inline-block; border-radius: 8px; border: 1px solid #3B82F6; line-height: 1;">
+                             ${buttonText} &rarr;
+                           </a>
+                         </td>
+diff --git a/src/types.ts b/src/types.ts
+index 198e03b..677b2fc 100644
+--- a/src/types.ts
++++ b/src/types.ts
+@@ -34,7 +34,7 @@ export interface Subscriber {
+   lastName: string;
+   status: 'active' | 'unsubscribed' | 'bounced' | 'suppressed';
+   tier: 'Free' | 'Scale' | 'Enterprise VIP';
+-  source: 'Meta Ads' | 'Referral Program' | 'Organic Search' | 'X / Twitter' | 'Beehiiv Recommendations';
++  source: 'Meta Ads' | 'Referral Program' | 'Organic Search' | 'X / Twitter' | 'WeeHivv Recommendations';
+   engagementScore: number; // 1 to 5
+   openRate: number;
+   clickRate: number;
+diff --git a/tailwind.config.js b/tailwind.config.js
+index 08497f1..b66e4db 100644
+--- a/tailwind.config.js
++++ b/tailwind.config.js
+@@ -8,15 +8,16 @@ export default {
+   theme: {
+     extend: {
+       colors: {
+-        beehiiv: {
+-          orange: '#FF5A36',
+-          yellow: '#FFDE43',
+-          purple: '#795290',
+-          dark: '#0A0A0B',
+-          card: '#141416',
+-          border: '#26262B',
+-          gray: '#8C8D94',
+-        }
++        primary: {
++          500: '#3B82F6',
++        },
++        surface: {
++          50: '#F3F4F6',
++          100: '#E5E7EB',
++        },
++        text: {
++          900: '#111827',
++        },
+       },
+       fontFamily: {
+         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],

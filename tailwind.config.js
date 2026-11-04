@@ -8,15 +8,16 @@ export default {
   theme: {
     extend: {
       colors: {
-        beehiiv: {
-          orange: '#FF5A36',
-          yellow: '#FFDE43',
-          purple: '#795290',
-          dark: '#0A0A0B',
-          card: '#141416',
-          border: '#26262B',
-          gray: '#8C8D94',
-        }
+        primary: {
+          500: '#3B82F6',
+        },
+        surface: {
+          50: '#F3F4F6',
+          100: '#E5E7EB',
+        },
+        text: {
+          900: '#111827',
+        },
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],

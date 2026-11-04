@@ -23,7 +23,7 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
   );
 
   return (
-    <div className="border border-[#1e2029] bg-[#0d0e12] rounded-2xl p-6 sm:p-8 mb-8 space-y-6">
+    <div className="border border-surface-100 bg-surface-50 rounded-2xl p-3 sm:p-5 mb-8 space-y-6">
       {/* Top Meta Tag */}
       <div className="flex items-center justify-between text-xs font-mono text-slate-400 pb-4 border-b border-[#181a22]">
         <div className="flex items-center space-x-2">
@@ -31,7 +31,7 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
           <span className="text-slate-300 font-medium">Sovereign Newsletter Infrastructure</span>
         </div>
         <div className="text-slate-500 hidden sm:block">
-          Open-Source Alternative to Beehiiv
+          Open-Source Alternative to WeeHivv
         </div>
       </div>
 
@@ -49,7 +49,7 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
       <div className="flex flex-wrap items-center gap-3 text-xs pt-1">
         <button
           onClick={onOpenStudio}
-          className="px-4 py-2.5 rounded-xl font-semibold bg-[#ff5a36] hover:bg-[#e04622] text-white flex items-center space-x-2 transition-colors shadow-sm"
+          className="px-4 py-2.5 rounded-xl font-semibold bg-primary-500 hover:bg-primary-600 text-white flex items-center space-x-2 transition-colors shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500"
         >
           <span>Open Email Studio</span>
           <ArrowRight className="w-3.5 h-3.5" />

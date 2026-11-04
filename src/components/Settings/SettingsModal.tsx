@@ -93,7 +93,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                 Bring Your Own Key (BYOK) & Publication Settings
               </h2>
               <p className="text-xs text-slate-400">
-                Plug your own provider keys to dispatch real emails and run AI workflows for free.
+                Plug your own provider keys to dispatch real emails and run WeeHivv workflows for free.
               </p>
             </div>
           </div>
@@ -112,7 +112,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
           <div>
             <strong className="text-white block font-medium">Local-Only Security Architecture</strong>
             <span>
-              All API keys are stored exclusively in your browser's encrypted <code className="font-mono text-slate-200">localStorage</code>. Requests are sent directly from your client to Resend, SendGrid, Groq, or OpenAI without intermediary proxies.
+              All API keys are stored exclusively in your browser's encrypted <code className="font-mono text-slate-200">localStorage</code>. Requests are sent directly from your client to Resend, SendGrid, Groq, or OpenWeeHivv without intermediary proxies.
             </span>
           </div>
         </div>
@@ -185,10 +185,10 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
           </div>
         </div>
 
-        {/* AI Provider Section */}
+        {/* WeeHivv Provider Section */}
         <div className="space-y-4 pt-2 border-t border-[#1e1f2b]">
           <div className="text-xs font-bold text-slate-300 uppercase tracking-wider">
-            2. AI Copilot Provider
+            2. WeeHivv Copilot Provider
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
@@ -216,7 +216,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
 
             <div>
               <div className="flex justify-between mb-1">
-                <span className="text-slate-300 font-medium">OpenAI API Key (Optional)</span>
+                <span className="text-slate-300 font-medium">OpenWeeHivv API Key (Optional)</span>
                 <span className="text-[11px] text-slate-500 font-mono">sk-...</span>
               </div>
               <input

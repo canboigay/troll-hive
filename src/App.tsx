@@ -17,7 +17,7 @@ import { EmailStudio } from './components/Editor/EmailStudio';
 import { DeliverabilityCenter } from './components/Deliverability/DeliverabilityCenter';
 import { SubscriberCRM } from './components/Subscribers/SubscriberCRM';
 import { VibeCodeReality } from './components/StackComparison/VibeCodeReality';
-import { BeehiivAPI } from './components/APIPlayground/BeehiivAPI';
+import { WeeHivvAPI } from './components/APIPlayground/WeeHivvAPI';
 import { SettingsModal } from './components/Settings/SettingsModal';
 import { CheckCircle2, Send, X } from 'lucide-react';
 import { sendNewsletterEmail } from './services/emailSender';
@@ -101,7 +101,7 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#090a0d] text-slate-100 flex flex-col font-sans selection:bg-[#ff5a36] selection:text-white">
+    <div className="min-h-screen bg-surface-50 text-slate-100 flex flex-col font-sans selection:bg-primary-500 selection:text-white">
       {/* Top Navbar */}
       <Navbar 
         activeTab={activeTab} 
@@ -159,7 +159,7 @@ export function App() {
         )}
 
         {activeTab === 'stack-comparison' && <VibeCodeReality />}
-        {activeTab === 'api-mcp' && <BeehiivAPI />}
+        {activeTab === 'api-mcp' && <WeeHivvAPI />}
       </main>
 
       {/* Bring Your Own Key Modal */}
@@ -184,7 +184,7 @@ export function App() {
             </button>
 
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 rounded-xl bg-[#ff5a36] flex items-center justify-center text-white font-bold">
+              <div className="w-10 h-10 rounded-xl bg-primary-500 flex items-center justify-center text-white font-bold">
                 <Send className={`w-5 h-5 ${isSending ? 'animate-bounce' : ''}`} />
               </div>
               <div>
@@ -240,7 +240,7 @@ export function App() {
               <div className="pt-2 flex justify-end">
                 <button
                   onClick={() => setSendModalOpen(false)}
-                  className="px-5 py-2 bg-[#ff5a36] hover:bg-[#e04622] text-white font-bold rounded-xl text-xs transition-all shadow-md shadow-orange-500/20"
+                  className="px-5 py-2 bg-primary-500 hover:bg-primary-600 text-white font-bold rounded-xl text-xs transition-all shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500"
                 >
                   Close & View Telemetry
                 </button>
@@ -251,7 +251,7 @@ export function App() {
       )}
 
       {/* Footer */}
-      <footer className="border-t border-[#161720] bg-[#07080a] py-6 text-xs text-slate-500 font-mono">
+      <footer className="border-t border-surface-100 bg-surface-50 py-6 text-xs text-text-900 font-mono">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center space-x-3">
             <span className="font-bold text-white">WeeHivv</span>

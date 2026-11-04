@@ -34,7 +34,7 @@ export interface Subscriber {
   lastName: string;
   status: 'active' | 'unsubscribed' | 'bounced' | 'suppressed';
   tier: 'Free' | 'Scale' | 'Enterprise VIP';
-  source: 'Meta Ads' | 'Referral Program' | 'Organic Search' | 'X / Twitter' | 'Beehiiv Recommendations';
+  source: 'Meta Ads' | 'Referral Program' | 'Organic Search' | 'X / Twitter' | 'WeeHivv Recommendations';
   engagementScore: number; // 1 to 5
   openRate: number;
   clickRate: number;
